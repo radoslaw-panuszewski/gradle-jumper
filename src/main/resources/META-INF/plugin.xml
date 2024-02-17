@@ -3,7 +3,7 @@
 
     <id>dev.panuszewski.intellij-gradle-navigation</id>
 
-    <name>IntelliJ Gradle Navigation</name>
+    <name>Enhanced Gradle Navigation</name>
 
     <vendor email="radoslaw.panuszewski15@gmail.com">Radosław Panuszewski</vendor>
 
@@ -14,10 +14,11 @@
 
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.kotlin</depends>
+    <depends>com.intellij.gradle</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <gotoDeclarationHandler implementation="dev.panuszewski.gradlenavigation.GoToScriptPluginHandler"/>
-        <gotoDeclarationHandler implementation="dev.panuszewski.gradlenavigation.GoToSubprojectHandler"/>
+        <gotoDeclarationHandler implementation="dev.panuszewski.gradlenavigation.scriptplugin.GoToScriptPluginHandler"/>
+        <gotoDeclarationHandler implementation="dev.panuszewski.gradlenavigation.subproject.GoToSubprojectHandler"/>
     </extensions>
 
 </idea-plugin>

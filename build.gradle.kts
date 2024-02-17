@@ -1,7 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.intellij)
@@ -18,7 +16,7 @@ repositories {
 intellij {
     version = "2023.3"
     type = "IU"
-    plugins = listOf("org.jetbrains.kotlin")
+    plugins = listOf("org.jetbrains.kotlin", "com.intellij.gradle")
     updateSinceUntilBuild = false
 }
 
@@ -26,6 +24,18 @@ java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
     }
+}
+
+dependencies {
+    implementation("net.pearx.kasechange:kasechange-jvm:1.4.1")
+    
+    testImplementation(libs.junit.api)
+    testImplementation(libs.junit.engine)
+    testImplementation(libs.assertk)
+    // TODO spróbować nie wczytywać do classpatha klasek, które się duplikują
+    //      albo dodać jara do customowej konfiguracji i zrobić tak żeby intellijowa konfiguracja ją extendowała
+    //      (żeby zmienić kolejność czytania jarów)
+//    testImplementation(files("lib/output.jar"))
 }
 
 tasks {
@@ -41,13 +51,5 @@ tasks {
 
     publishPlugin {
         token = System.getenv("PUBLISH_TOKEN")
-    }
-
-    withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "17"
-    }
-
-    withType<Wrapper> {
-        gradleVersion = "8.2"
     }
 }
