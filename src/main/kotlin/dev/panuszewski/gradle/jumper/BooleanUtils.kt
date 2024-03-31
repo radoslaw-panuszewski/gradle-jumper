@@ -1,6 +1,4 @@
-package dev.panuszewski.gradlenavigation
-
-inline fun <reified T> Any.takeIfInstance() = this as? T
+package dev.panuszewski.gradle.jumper
 
 /**
  * Just to have multiline AND expressions nicely aligned

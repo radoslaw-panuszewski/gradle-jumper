@@ -1,4 +1,4 @@
-package dev.panuszewski.gradlenavigation
+package dev.panuszewski.gradle.jumper
 
 class GoToScriptPluginTest : BaseGoToDeclarationTest() {
 

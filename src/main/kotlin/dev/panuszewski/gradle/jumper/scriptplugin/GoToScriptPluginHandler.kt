@@ -1,4 +1,4 @@
-package dev.panuszewski.gradlenavigation.scriptplugin
+package dev.panuszewski.gradle.jumper.scriptplugin
 
 import com.intellij.codeInsight.navigation.actions.GotoDeclarationHandler
 import com.intellij.openapi.editor.Editor
@@ -7,12 +7,12 @@ import com.intellij.psi.PsiManager
 import com.intellij.psi.search.FilenameIndex
 import com.intellij.psi.search.GlobalSearchScope.allScope
 import com.intellij.psi.util.elementType
-import dev.panuszewski.gradlenavigation.and
-import dev.panuszewski.gradlenavigation.findFirstParent
-import dev.panuszewski.gradlenavigation.or
+import dev.panuszewski.gradle.jumper.and
+import dev.panuszewski.gradle.jumper.findFirstParent
+import dev.panuszewski.gradle.jumper.or
 import org.jetbrains.kotlin.psi.stubs.elements.KtValueArgumentElementType
 
-class GoToScriptPluginHandler : GotoDeclarationHandler {
+public class GoToScriptPluginHandler : GotoDeclarationHandler {
 
     override fun getGotoDeclarationTargets(element: PsiElement?, offset: Int, editor: Editor): Array<PsiElement> {
         element ?: return emptyArray()

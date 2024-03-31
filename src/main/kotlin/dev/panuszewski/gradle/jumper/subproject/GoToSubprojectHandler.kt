@@ -1,4 +1,4 @@
-package dev.panuszewski.gradlenavigation.subproject
+package dev.panuszewski.gradle.jumper.subproject
 
 import com.intellij.codeInsight.navigation.actions.GotoDeclarationHandler
 import com.intellij.openapi.editor.Editor
@@ -9,13 +9,13 @@ import com.intellij.psi.PsiManager
 import com.intellij.psi.search.FilenameIndex
 import com.intellij.psi.search.GlobalSearchScope.allScope
 import com.intellij.psi.util.elementType
-import dev.panuszewski.gradlenavigation.and
-import dev.panuszewski.gradlenavigation.findFirstParent
-import dev.panuszewski.gradlenavigation.firstChild
-import dev.panuszewski.gradlenavigation.or
+import dev.panuszewski.gradle.jumper.and
+import dev.panuszewski.gradle.jumper.findFirstParent
+import dev.panuszewski.gradle.jumper.firstChild
+import dev.panuszewski.gradle.jumper.or
 import org.jetbrains.kotlin.psi.stubs.elements.KtDotQualifiedExpressionElementType
 
-class GoToSubprojectHandler : GotoDeclarationHandler {
+public class GoToSubprojectHandler : GotoDeclarationHandler {
 
     override fun getGotoDeclarationTargets(element: PsiElement?, offset: Int, editor: Editor): Array<PsiElement> {
         element ?: return emptyArray()

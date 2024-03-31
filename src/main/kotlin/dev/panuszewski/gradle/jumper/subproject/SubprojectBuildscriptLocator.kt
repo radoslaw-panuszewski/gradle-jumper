@@ -1,11 +1,11 @@
-package dev.panuszewski.gradlenavigation.subproject
+package dev.panuszewski.gradle.jumper.subproject
 
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiLiteralExpression
 import com.intellij.psi.impl.compiled.ClsMethodImpl
-import dev.panuszewski.gradlenavigation.findChildrenOfType
-import dev.panuszewski.gradlenavigation.takeIfInstance
+import dev.panuszewski.gradle.jumper.findChildrenOfType
+import dev.panuszewski.gradle.jumper.takeIfInstance
 import net.pearx.kasechange.toCamelCase
 import org.jetbrains.kotlin.idea.references.SyntheticPropertyAccessorReference
 

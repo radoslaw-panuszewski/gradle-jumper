@@ -1,7 +1,7 @@
 <idea-plugin>
     <idea-version since-build="233" />
 
-    <id>dev.panuszewski.intellij-gradle-navigation</id>
+    <id>dev.panuszewski.gradle-jumper</id>
 
     <name>Enhanced Gradle Navigation</name>
 
@@ -17,8 +17,8 @@
     <depends>com.intellij.gradle</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <gotoDeclarationHandler implementation="dev.panuszewski.gradlenavigation.scriptplugin.GoToScriptPluginHandler"/>
-        <gotoDeclarationHandler implementation="dev.panuszewski.gradlenavigation.subproject.GoToSubprojectHandler"/>
+        <gotoDeclarationHandler implementation="dev.panuszewski.gradle.jumper.scriptplugin.GoToScriptPluginHandler"/>
+        <gotoDeclarationHandler implementation="dev.panuszewski.gradle.jumper.subproject.GoToSubprojectHandler"/>
     </extensions>
 
 </idea-plugin>

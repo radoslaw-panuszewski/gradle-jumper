@@ -1,4 +1,4 @@
-package dev.panuszewski.gradlenavigation
+package dev.panuszewski.gradle.jumper
 
 import com.intellij.psi.PsiElement
 import com.intellij.psi.util.PsiTreeUtil

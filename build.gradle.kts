@@ -20,10 +20,11 @@ intellij {
     updateSinceUntilBuild = false
 }
 
-java {
-    toolchain {
+kotlin {
+    jvmToolchain {
         languageVersion = JavaLanguageVersion.of(17)
     }
+    explicitApi()
 }
 
 dependencies {
