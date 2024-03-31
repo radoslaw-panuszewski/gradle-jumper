@@ -32,6 +32,7 @@ testcontainers-mongodb = "1.19.1"
 wiremock = "3.0.1"
 nexus-publish = "1.1.0"
 intellij-plugin = "1.15.0"
+kasechange = "1.4.1"
 
 [plugins]
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
@@ -102,6 +103,9 @@ guava = { group = "com.google.guava", name = "guava", version.ref = "guava" }
 # Arrow
 arrow-optics = { group = "io.arrow-kt", name = "arrow-optics", version.ref = "arrow" }
 
+# kasechange
+kasechange = { group = "net.pearx.kasechange", name = "kasechange-jvm", version.ref = "kasechange" }
+
 # Kotest
 kotest-assertions = { group = "io.kotest", name = "kotest-assertions-core", version.ref = "kotest" }
 kotest-assertions-json = { group = "io.kotest", name = "kotest-assertions-json-jvm", version.ref = "kotest" }
@@ -111,12 +115,6 @@ kotest-property = { group = "io.kotest", name = "kotest-property", version.ref =
 kotest-runner = { group = "io.kotest", name = "kotest-runner-junit5", version.ref = "kotest" }
 kotest-spring = { group = "io.kotest.extensions", name = "kotest-extensions-spring", version.ref = "kotest-spring" }
 kotest-wiremock = { group = "io.kotest.extensions", name = "kotest-extensions-wiremock", version.ref = "kotest-wiremock" }
-
-# Spock & Groovy
-spock-core = { group = "org.spockframework", name = "spock-core", version.ref = "spock" }
-spock-spring = { group = "org.spockframework", name = "spock-spring", version.ref = "spock" }
-groovy = { group = "org.apache.groovy", name = "groovy-all", version.ref = "groovy" }
-cglib-nodep = { group = "cglib", name = "cglib-nodep", version = "3.3.0" }
 
 # JUnit
 junit-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "junit" }

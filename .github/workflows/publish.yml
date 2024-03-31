@@ -21,6 +21,8 @@ jobs:
           distribution: 'adopt'
           java-version: '17'
 
+      - uses: gradle/actions/setup-gradle@v3
+
       - name: Publish plugin
         env:
           CERTIFICATE_CHAIN: ${{ secrets.CERTIFICATE_CHAIN }}

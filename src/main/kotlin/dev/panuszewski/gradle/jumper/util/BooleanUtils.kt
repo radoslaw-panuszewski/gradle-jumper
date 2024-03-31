@@ -1,4 +1,4 @@
-package dev.panuszewski.gradle.jumper
+package dev.panuszewski.gradle.jumper.util
 
 /**
  * Just to have multiline AND expressions nicely aligned

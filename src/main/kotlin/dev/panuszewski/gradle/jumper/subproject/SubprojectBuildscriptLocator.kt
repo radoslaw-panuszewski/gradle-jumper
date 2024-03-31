@@ -4,8 +4,8 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiLiteralExpression
 import com.intellij.psi.impl.compiled.ClsMethodImpl
-import dev.panuszewski.gradle.jumper.findChildrenOfType
-import dev.panuszewski.gradle.jumper.takeIfInstance
+import dev.panuszewski.gradle.jumper.util.findChildrenOfType
+import dev.panuszewski.gradle.jumper.util.takeIfInstance
 import net.pearx.kasechange.toCamelCase
 import org.jetbrains.kotlin.idea.references.SyntheticPropertyAccessorReference
 

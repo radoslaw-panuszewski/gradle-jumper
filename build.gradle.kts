@@ -28,15 +28,9 @@ kotlin {
 }
 
 dependencies {
-    implementation("net.pearx.kasechange:kasechange-jvm:1.4.1")
-    
-    testImplementation(libs.junit.api)
-    testImplementation(libs.junit.engine)
+    implementation(libs.kasechange)
+
     testImplementation(libs.assertk)
-    // TODO spróbować nie wczytywać do classpatha klasek, które się duplikują
-    //      albo dodać jara do customowej konfiguracji i zrobić tak żeby intellijowa konfiguracja ją extendowała
-    //      (żeby zmienić kolejność czytania jarów)
-//    testImplementation(files("lib/output.jar"))
 }
 
 tasks {
@@ -52,5 +46,9 @@ tasks {
 
     publishPlugin {
         token = System.getenv("PUBLISH_TOKEN")
+    }
+
+    check {
+        dependsOn(verifyPlugin)
     }
 }

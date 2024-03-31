@@ -1,4 +1,4 @@
-package dev.panuszewski.gradle.jumper
+package dev.panuszewski.gradle.jumper.util
 
 import com.intellij.psi.PsiElement
 import com.intellij.psi.util.PsiTreeUtil
