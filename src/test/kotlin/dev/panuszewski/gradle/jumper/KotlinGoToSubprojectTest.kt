@@ -39,4 +39,32 @@ class KotlinGoToSubprojectTest : BaseGoToDeclarationTest() {
         // then
         verifyFileIsOpen("snake_case_subproject_1/build.gradle.kts")
     }
+
+    fun testGoToNotTypesafeSubproject() {
+        // given
+        openFileInEditor("build.gradle.kts")
+        putCaretOnElement(":notTypesafeSubproject1")
+
+        // when
+        goToDeclaration()
+
+        // then
+        verifyFileIsOpen("notTypesafeSubproject1/build.gradle.kts")
+    }
+
+    fun testGoToCustomBuildscriptNameSubproject() {
+        // given
+        openFileInEditor("build.gradle.kts")
+        putCaretOnElement("customBuildscriptNameSubproject1")
+
+        // when
+        goToDeclaration()
+
+        // then
+        verifyFileIsOpen("customBuildscriptNameSubproject1/custom-buildscript.gradle.kts")
+    }
+
+    fun testGoToNestedSubproject() {
+        // TODO
+    }
 }

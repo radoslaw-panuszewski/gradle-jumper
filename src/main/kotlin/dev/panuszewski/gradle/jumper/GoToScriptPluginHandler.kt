@@ -5,7 +5,7 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiManager
 import com.intellij.psi.search.FilenameIndex
-import com.intellij.psi.search.GlobalSearchScope.allScope
+import com.intellij.psi.search.GlobalSearchScope.projectScope
 import com.intellij.psi.util.elementType
 import dev.panuszewski.gradle.jumper.util.and
 import dev.panuszewski.gradle.jumper.util.findFirstParent
@@ -37,11 +37,14 @@ public class GoToScriptPluginHandler : GradleGoToDeclarationHandler() {
     }
 
     private fun getPluginNameFrom(psiElement: PsiElement) =
-        psiElement.text.replace("`", "").replace("\"", "").replace("'", "")
+        psiElement.text
+            .replace("`", "")
+            .replace("\"", "")
+            .replace("'", "")
 
     private fun findScriptFilesForPlugin(project: Project, pluginName: String): List<PsiFile> {
-        val kotlinFiles = FilenameIndex.getVirtualFilesByName("$pluginName.gradle.kts", allScope(project))
-        val groovyFiles = FilenameIndex.getVirtualFilesByName("$pluginName.gradle", allScope(project))
+        val kotlinFiles = FilenameIndex.getVirtualFilesByName("$pluginName.gradle.kts", projectScope(project))
+        val groovyFiles = FilenameIndex.getVirtualFilesByName("$pluginName.gradle", projectScope(project))
 
         return (kotlinFiles + groovyFiles)
             .mapNotNull { PsiManager.getInstance(project).findFile(it) }

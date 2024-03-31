@@ -39,4 +39,16 @@ class GroovyGoToSubprojectTest : BaseGoToDeclarationTest() {
         // then
         verifyFileIsOpen("snake_case_subproject_1/build.gradle")
     }
+
+    fun testGoToNotTypesafeSubproject() {
+        // TODO
+    }
+
+    fun testGoToCustomBuildscriptNameSubproject() {
+        // TODO
+    }
+
+    fun testGoToNestedSubproject() {
+        // TODO
+    }
 }

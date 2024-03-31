@@ -13,5 +13,9 @@ dependencyResolutionManagement {
 include("camelCaseSubproject1")
 include("kebab-case-subproject-1")
 include("snake_case_subproject_1")
+include("notTypesafeSubproject1")
+include("customBuildscriptNameSubproject1")
+
+project(":customBuildscriptNameSubproject1").buildFileName = "custom-buildscript.gradle.kts"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")

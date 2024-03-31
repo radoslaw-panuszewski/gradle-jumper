@@ -39,4 +39,8 @@ class GroovyGoToScriptPluginTest : BaseGoToDeclarationTest() {
         // then
         verifyFileIsOpen("buildSrc/src/main/groovy/snake_case_plugin.gradle")
     }
+
+    fun testGoToNotTypesafePlugin() {
+        // TODO
+    }
 }

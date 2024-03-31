@@ -39,4 +39,16 @@ class KotlinGoToScriptPluginTest : BaseGoToDeclarationTest() {
         // then
         verifyFileIsOpen("buildSrc/src/main/kotlin/snake_case_plugin.gradle.kts")
     }
+
+    fun testGoToNotTypesafePlugin() {
+        // given
+        openFileInEditor("build.gradle.kts")
+        putCaretOnElement("notTypesafePlugin")
+
+        // when
+        goToDeclaration()
+
+        // then
+        verifyFileIsOpen("buildSrc/src/main/kotlin/notTypesafePlugin.gradle.kts")
+    }
 }
