@@ -1,4 +1,4 @@
-package dev.panuszewski.gradle.jumper.scriptplugin
+package dev.panuszewski.gradle.jumper
 
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
@@ -7,7 +7,6 @@ import com.intellij.psi.PsiManager
 import com.intellij.psi.search.FilenameIndex
 import com.intellij.psi.search.GlobalSearchScope.allScope
 import com.intellij.psi.util.elementType
-import dev.panuszewski.gradle.jumper.GradleGoToDeclarationHandler
 import dev.panuszewski.gradle.jumper.util.and
 import dev.panuszewski.gradle.jumper.util.findFirstParent
 import dev.panuszewski.gradle.jumper.util.or
@@ -18,7 +17,7 @@ public class GoToScriptPluginHandler : GradleGoToDeclarationHandler() {
 
     override fun getGradleGotoDeclarationTargets(psiElement: PsiElement, project: Project): Array<PsiElement> {
         if (isScriptPluginUsage(psiElement)) {
-            val pluginName = psiElement.text.replace("`", "").replace("\"", "").replace("'", "")
+            val pluginName = getPluginNameFrom(psiElement)
             return findScriptFilesForPlugin(project, pluginName).toTypedArray()
         }
         return emptyArray()
@@ -36,6 +35,9 @@ public class GoToScriptPluginHandler : GradleGoToDeclarationHandler() {
         }
         return pluginBlock != null
     }
+
+    private fun getPluginNameFrom(psiElement: PsiElement) =
+        psiElement.text.replace("`", "").replace("\"", "").replace("'", "")
 
     private fun findScriptFilesForPlugin(project: Project, pluginName: String): List<PsiFile> {
         val kotlinFiles = FilenameIndex.getVirtualFilesByName("$pluginName.gradle.kts", allScope(project))

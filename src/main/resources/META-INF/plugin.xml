@@ -18,8 +18,8 @@
     <depends>org.intellij.groovy</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <gotoDeclarationHandler implementation="dev.panuszewski.gradle.jumper.scriptplugin.GoToScriptPluginHandler"/>
-        <gotoDeclarationHandler implementation="dev.panuszewski.gradle.jumper.subproject.GoToSubprojectHandler"/>
+        <gotoDeclarationHandler implementation="dev.panuszewski.gradle.jumper.GoToScriptPluginHandler"/>
+        <gotoDeclarationHandler implementation="dev.panuszewski.gradle.jumper.GoToSubprojectHandler"/>
     </extensions>
 
 </idea-plugin>
