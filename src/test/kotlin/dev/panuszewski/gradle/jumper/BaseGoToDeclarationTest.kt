@@ -3,13 +3,14 @@ package dev.panuszewski.gradle.jumper
 import assertk.assertThat
 import assertk.assertions.isEqualTo
 import com.intellij.codeInsight.navigation.actions.GotoDeclarationAction
+import com.intellij.openapi.file.exclude.OverrideFileTypeManager
+import com.intellij.openapi.vfs.newvfs.impl.CachedFileType
+import com.intellij.psi.PsiElement
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
-import org.jetbrains.kotlin.psi.KtElement
+import org.jetbrains.plugins.groovy.GroovyFileType.GROOVY_FILE_TYPE
 
 abstract class BaseGoToDeclarationTest : BasePlatformTestCase() {
-
-    override fun getTestDataPath() = "./example-project"
 
     override fun setUp() {
         super.setUp()
@@ -18,11 +19,15 @@ abstract class BaseGoToDeclarationTest : BasePlatformTestCase() {
 
     protected fun openFileInEditor(path: String) {
         val file = myFixture.findFileInTempDir(path)
+        if (path.endsWith(".gradle")) {
+            OverrideFileTypeManager.getInstance().addFile(file, GROOVY_FILE_TYPE)
+            CachedFileType.clearCache()
+        }
         myFixture.openFileInEditor(file)
     }
 
     protected fun putCaretOnElement(element: String) {
-        val psiElement = PsiTreeUtil.findChildrenOfType(myFixture.file, KtElement::class.java)
+        val psiElement = PsiTreeUtil.findChildrenOfType(myFixture.file, PsiElement::class.java)
             .find { it.text == element }
             ?: error("PsiElement not found for '$element' in file ${myFixture.file.name}")
 

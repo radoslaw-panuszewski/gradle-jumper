@@ -3,18 +3,19 @@
 
     <id>dev.panuszewski.gradle-jumper</id>
 
-    <name>Enhanced Gradle Navigation</name>
+    <name>Gradle Jumper</name>
 
     <vendor email="radoslaw.panuszewski15@gmail.com">Radosław Panuszewski</vendor>
 
     <description><![CDATA[
-        Some description
+
     ]]>
     </description>
 
     <depends>com.intellij.modules.platform</depends>
-    <depends>org.jetbrains.kotlin</depends>
     <depends>com.intellij.gradle</depends>
+    <depends>org.jetbrains.kotlin</depends>
+    <depends>org.intellij.groovy</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <gotoDeclarationHandler implementation="dev.panuszewski.gradle.jumper.scriptplugin.GoToScriptPluginHandler"/>

@@ -1,6 +1,8 @@
 package dev.panuszewski.gradle.jumper
 
-class GoToScriptPluginTest : BaseGoToDeclarationTest() {
+class KotlinGoToScriptPluginTest : BaseGoToDeclarationTest() {
+
+    override fun getTestDataPath() = "./example-project-kotlin"
 
     fun testGoToCamelCasePlugin() {
         // given

@@ -11,7 +11,9 @@ import dev.panuszewski.gradle.jumper.GradleGoToDeclarationHandler
 import dev.panuszewski.gradle.jumper.util.and
 import dev.panuszewski.gradle.jumper.util.findFirstParent
 import dev.panuszewski.gradle.jumper.util.firstChild
+import dev.panuszewski.gradle.jumper.util.or
 import org.jetbrains.kotlin.psi.stubs.elements.KtDotQualifiedExpressionElementType
+import org.jetbrains.plugins.groovy.lang.psi.GroovyElementTypes
 
 public class GoToSubprojectHandler : GradleGoToDeclarationHandler() {
 
@@ -34,7 +36,10 @@ public class GoToSubprojectHandler : GradleGoToDeclarationHandler() {
     private fun isPartOfTypesafeProjectAccessorExpression(element: PsiElement): Boolean {
         val typesafeProjectAccessorExpression = element.findFirstParent { parent ->
             and(
-                parent.elementType is KtDotQualifiedExpressionElementType,
+                or(
+                    parent.elementType is KtDotQualifiedExpressionElementType,
+                    parent.elementType == GroovyElementTypes.REFERENCE_EXPRESSION
+                ),
                 parent.firstChild().text == "projects"
             )
         }
