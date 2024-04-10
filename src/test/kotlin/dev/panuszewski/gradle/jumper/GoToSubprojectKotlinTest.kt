@@ -1,6 +1,6 @@
 package dev.panuszewski.gradle.jumper
 
-class KotlinGoToSubprojectTest : BaseGoToDeclarationTest() {
+class GoToSubprojectKotlinTest : BaseGoToDeclarationTest() {
 
     override fun getTestDataPath() = "./example-project-kotlin"
 
@@ -65,6 +65,26 @@ class KotlinGoToSubprojectTest : BaseGoToDeclarationTest() {
     }
 
     fun testGoToNestedSubproject() {
-        // TODO
+        // given
+        openFileInEditor("build.gradle.kts")
+        putCaretOnElement("nestedSubproject")
+
+        // when
+        goToDeclaration()
+
+        // then
+        verifyFileIsOpen("nested/nestedSubproject/build.gradle.kts")
+    }
+
+    fun testGoToParentOfNestedSubproject() {
+        // given
+        openFileInEditor("build.gradle.kts")
+        putCaretOnElement("nested")
+
+        // when
+        goToDeclaration()
+
+        // then
+        verifyFileIsOpen("nested/build.gradle.kts")
     }
 }

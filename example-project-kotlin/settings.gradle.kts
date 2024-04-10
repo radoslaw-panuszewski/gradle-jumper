@@ -10,11 +10,12 @@ dependencyResolutionManagement {
     }
 }
 
-include("camelCaseSubproject1")
-include("kebab-case-subproject-1")
-include("snake_case_subproject_1")
-include("notTypesafeSubproject1")
-include("customBuildscriptNameSubproject1")
+include(":camelCaseSubproject1")
+include(":kebab-case-subproject-1")
+include(":snake_case_subproject_1")
+include(":notTypesafeSubproject1")
+include(":customBuildscriptNameSubproject1")
+include(":nested:nestedSubproject")
 
 project(":customBuildscriptNameSubproject1").buildFileName = "custom-buildscript.gradle.kts"
 

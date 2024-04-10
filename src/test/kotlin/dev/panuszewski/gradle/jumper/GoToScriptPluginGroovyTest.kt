@@ -1,6 +1,6 @@
 package dev.panuszewski.gradle.jumper
 
-class GroovyGoToScriptPluginTest : BaseGoToDeclarationTest() {
+class GoToScriptPluginGroovyTest : BaseGoToDeclarationTest() {
 
     override fun getTestDataPath() = "./example-project-groovy"
 

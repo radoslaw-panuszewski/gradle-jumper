@@ -19,6 +19,7 @@ dependencies {
     implementation(projects.snakeCaseSubproject1)
     implementation(project(":notTypesafeSubproject1"))
     implementation(projects.customBuildscriptNameSubproject1)
+    implementation(projects.nested.nestedSubproject)
 }
 
 tasks.test {

@@ -1,6 +1,6 @@
 package dev.panuszewski.gradle.jumper
 
-class GroovyGoToSubprojectTest : BaseGoToDeclarationTest() {
+class GoToSubprojectGroovyTest : BaseGoToDeclarationTest() {
 
     override fun getTestDataPath() = "./example-project-groovy"
 
@@ -41,14 +41,50 @@ class GroovyGoToSubprojectTest : BaseGoToDeclarationTest() {
     }
 
     fun testGoToNotTypesafeSubproject() {
-        // TODO
+        // given
+        openFileInEditor("build.gradle")
+        putCaretOnElement("\":notTypesafeSubproject1\"")
+
+        // when
+        goToDeclaration()
+
+        // then
+        verifyFileIsOpen("notTypesafeSubproject1/build.gradle")
     }
 
     fun testGoToCustomBuildscriptNameSubproject() {
-        // TODO
+        // given
+        openFileInEditor("build.gradle")
+        putCaretOnElement("customBuildscriptNameSubproject1")
+
+        // when
+        goToDeclaration()
+
+        // then
+        verifyFileIsOpen("customBuildscriptNameSubproject1/custom-buildscript.gradle")
     }
 
     fun testGoToNestedSubproject() {
-        // TODO
+        // given
+        openFileInEditor("build.gradle")
+        putCaretOnElement("nestedSubproject")
+
+        // when
+        goToDeclaration()
+
+        // then
+        verifyFileIsOpen("nested/nestedSubproject/build.gradle")
+    }
+
+    fun testGoToParentOfNestedSubproject() {
+        // given
+        openFileInEditor("build.gradle")
+        putCaretOnElement("nested")
+
+        // when
+        goToDeclaration()
+
+        // then
+        verifyFileIsOpen("nested/build.gradle")
     }
 }
