@@ -31,8 +31,7 @@ abstract class BaseGoToDeclarationTest : BasePlatformTestCase() {
             .find { it.text == element }
             ?: error("PsiElement not found for '$element' in file ${myFixture.file.name}")
 
-        // TODO remove the +1 and handle the OPEN_QUOTE case properly (and also other token-level PSI elements)
-        myFixture.editor.caretModel.moveToOffset(psiElement.textOffset + 1)
+        myFixture.editor.caretModel.moveToOffset(psiElement.textOffset)
     }
 
     protected fun goToDeclaration() = with(myFixture) {

@@ -4,7 +4,10 @@ import com.intellij.codeInsight.navigation.actions.GotoDeclarationHandler
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
+import com.intellij.psi.util.elementType
 import dev.panuszewski.gradle.jumper.util.or
+import org.jetbrains.kotlin.lexer.KtTokens.CLOSING_QUOTE
+import org.jetbrains.kotlin.lexer.KtTokens.OPEN_QUOTE
 
 public abstract class GradleGoToDeclarationHandler : GotoDeclarationHandler {
 
@@ -18,7 +21,11 @@ public abstract class GradleGoToDeclarationHandler : GotoDeclarationHandler {
         val project = editor.project ?: return emptyArray()
 
         if (isWithinGradleBuildscript(psiElement)) {
-            return getGradleGotoDeclarationTargets(psiElement, project)
+            return when (psiElement.elementType) {
+                OPEN_QUOTE -> getGradleGotoDeclarationTargets(psiElement.nextSibling, project)
+                CLOSING_QUOTE -> getGradleGotoDeclarationTargets(psiElement.prevSibling, project)
+                else -> getGradleGotoDeclarationTargets(psiElement, project)
+            }
         }
         return emptyArray()
     }
