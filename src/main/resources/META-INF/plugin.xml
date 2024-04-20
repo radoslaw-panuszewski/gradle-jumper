@@ -1,5 +1,5 @@
 <idea-plugin>
-    <idea-version since-build="233" />
+    <idea-version since-build="231" />
 
     <id>dev.panuszewski.gradle-jumper</id>
 

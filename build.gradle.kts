@@ -14,7 +14,7 @@ repositories {
 }
 
 intellij {
-    version = "2023.3"
+    version = "2023.1"
     type = "IU"
     plugins = listOf("org.jetbrains.kotlin", "org.intellij.groovy")
     updateSinceUntilBuild = false
