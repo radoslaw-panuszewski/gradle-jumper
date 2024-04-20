@@ -29,7 +29,6 @@ kotlin {
 
 dependencies {
     implementation(libs.kasechange)
-
     testImplementation(libs.assertk)
 }
 
@@ -46,6 +45,10 @@ tasks {
 
     publishPlugin {
         token = System.getenv("PUBLISH_TOKEN")
+    }
+
+    buildSearchableOptions {
+        enabled = false
     }
 
     check {
