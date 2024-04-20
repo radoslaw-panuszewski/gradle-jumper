@@ -8,15 +8,16 @@
     <vendor email="radoslaw.panuszewski15@gmail.com">Radosław Panuszewski</vendor>
 
     <description><![CDATA[
-        Gradle is recently introducing more and more typesafe accessors:
+        <p>Gradle is recently introducing more and more typesafe accessors:</p>
         <ul>
             <li>version catalog accessors (for example <tt>libs.kotlin.stdlib</tt>)</li>
             <li>precompiled script plugin accessors (for example <tt>`my-custom-plugin`</tt>)</li>
         </ul>
-        It is sometimes tempting to Ctrl/Cmd + Click on such accessor and expect to jump into the right place.
-        Instead, IDE leads us to the generated code which makes up the accessor.
-        <br />
-        This plugin is here to change it!
+
+        <p>It is sometimes tempting to <tt>Ctrl/Cmd + Click</tt> on such accessor and expect to jump into the right place.
+        Instead, IDE leads us to the generated code which makes up the accessor.</p>
+
+        <p>This plugin is here to help! Check out the quick demo above ;)</p>
     ]]>
     </description>
 
