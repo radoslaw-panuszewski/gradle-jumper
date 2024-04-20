@@ -7,3 +7,8 @@ Supported:
 * precompiled script plugin references
 
 The plugin is available in JetBrains marketplace: https://plugins.jetbrains.com/plugin/24207-gradle-jumper
+
+## Demo
+
+https://github.com/radoslaw-panuszewski/gradle-jumper/assets/26261725/a4eb390f-4f19-4c4e-9c62-621fc9c057da
+
