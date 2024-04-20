@@ -8,16 +8,14 @@
     <vendor email="radoslaw.panuszewski15@gmail.com">Radosław Panuszewski</vendor>
 
     <description><![CDATA[
-        <p>Gradle is recently introducing more and more typesafe accessors:</p>
+        <p>Adds enhanced "go to declaration" support for Gradle typesafe (and not typesafe) accessors.
+        Instead of going to the generated code, you will jump directly to the place which is semantically referenced.</p>
+
+        <p>Supported:</p>
         <ul>
-            <li>version catalog accessors (for example <tt>libs.kotlin.stdlib</tt>)</li>
-            <li>precompiled script plugin accessors (for example <tt>`my-custom-plugin`</tt>)</li>
+            <li>subproject references</li>
+            <li>precompiled script plugin references</li>
         </ul>
-
-        <p>It is sometimes tempting to <tt>Ctrl/Cmd + Click</tt> on such accessor and expect to jump into the right place.
-        Instead, IDE leads us to the generated code which makes up the accessor.</p>
-
-        <p>This plugin is here to help! Check out the quick demo above ;)</p>
     ]]>
     </description>
 
