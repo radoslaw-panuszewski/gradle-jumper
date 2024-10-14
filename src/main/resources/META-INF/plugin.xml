@@ -1,24 +1,4 @@
 <idea-plugin>
-    <idea-version since-build="231" />
-
-    <id>dev.panuszewski.gradle-jumper</id>
-
-    <name>Gradle Jumper</name>
-
-    <vendor email="radoslaw.panuszewski15@gmail.com">Radosław Panuszewski</vendor>
-
-    <description><![CDATA[
-        <p>Adds enhanced "go to declaration" support for Gradle typesafe (and not typesafe) accessors.
-        Instead of going to the generated code, you will jump directly to the place which is semantically referenced.</p>
-
-        <p>Supported:</p>
-        <ul>
-            <li>subproject references</li>
-            <li>precompiled script plugin references</li>
-        </ul>
-    ]]>
-    </description>
-
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.kotlin</depends>
     <depends>org.intellij.groovy</depends>
